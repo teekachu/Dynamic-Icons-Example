@@ -1,23 +1,20 @@
 # Dynamic-Icons-Example
-Topic - How to change your app icons programmatically
+How to change your app icons programmatically
  
-Intro: 
-App icons are the first point of engagement for your users, an effective tool to catch their attention, and keep them away from exploring other potential options. Having alternative icon options is a great way to bring some personality to your app, and it’s also fairly simple to set up. 
-
 Pre requisites: 
-The ability to change app icons has been present since iOS 10.3, so please make sure you have a recent build of Xcode.
+Xcode build that supports iOS 10.3 or later
+Icons
 
-To get started, you will first need some icons. I like to use Figma to design mine, and there is an extension called “App Icon Toolkit” which exports your icon with the correct sizes as well as naming convention. How convenient!
-<https://www.figma.com/community/file/824894885635013369>
+Figma is my go to design tool, there is an extension called “App Icon Toolkit” which exports your icon with the correct sizes as well as naming convention: <https://www.figma.com/community/file/824894885635013369>
 
 Body: 
-In Xcode, I have created a new group called “AlternativeIcons” to organize my icons. Each icon image should be available in both 2x (120 x120) and 3x (180 x 180) sizes, 1x size is optional. Please ensure to use the @2x and @3x naming convention that will allow iOS to automatically select the correct icon with the best resolution for the user’s device. 
+Create a new group called “AlternativeIcons” in Xcode to organize the alt icons. Each image should be available in both 2x (120 x120) and 3x (180 x 180) sizes, 1x size is optional. Please ensure to use the @2x and @3x naming convention that will allow iOS to automatically select the correct icon with the best resolution for the user’s device. 
 
 <img one>
 
 *** Note: Please ensure that these icons do not go inside the Asset catalogue. 
 
-Next, we are going to create another Swift file called IconManager. In this file, we will create a class called IconManager that will contain three things - a constant, an enum, and a function. 
+Next, create another Swift file called IconManager. In this file, we will create a class called IconManager that will contain three things - a constant, an enum, and a function. 
 
 ``` 
 class IconManager {
@@ -87,5 +84,30 @@ Moving on to CFBundleAlternateIcons.  In the example XML, I used the references 
 
 The last thing we need to do is to add an action to the call-to-action buttons,  and this is only one line of code. Go to the ViewController where your buttons are located. 
 
+First, make an instance of IconManager(): 
+```
+var appIconManager = IconManager()
+```
+
+And then, inside the @IBAction functions, we just have to call changeAppIcon() for the corresponding case. On the other hand, you could set the alternativeIconName to nil if you would like to reset it back to default.
+```
+  @IBAction func defaultIconTapped(_ sender: Any) {
+        // Set the icons to default
+        UIApplication.shared.setAlternateIconName(nil)
+    }
+    
+    @IBAction func charmanderTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .charmanderIcon)
+    }
+    
+    @IBAction func pikachuTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .pikachuIcon)
+    }
+    
+ ```
+ 
+When you run your project and tap on each alt icon button, you should see a pop up alert notifying you that icons have been changed successfully. 
+ 
+<img2>
 
 
