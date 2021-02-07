@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pikachuIcon: UIButton!
     
     @IBAction func defaultIconTapped(_ sender: Any) {
+        // Set the icons to default
         UIApplication.shared.setAlternateIconName(nil)
     }
     
