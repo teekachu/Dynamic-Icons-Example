@@ -1,8 +1,8 @@
 # Dynamic-Icons-Example
-# How to change your app icons programmatically
+How to change your app icons programmatically
  
  
-# Pre requisites: 
+## Pre requisites: 
 Xcode build that supports iOS 10.3 or later
 Icons
 
