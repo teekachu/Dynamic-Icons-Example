@@ -101,7 +101,9 @@ And then, inside the @IBAction functions, we just have to call changeAppIcon() f
     
  ```
 When you run your project and tap on each alt icon button, you should see a pop up alert notifying you that icons have been changed successfully. 
+
 ![image](https://user-images.githubusercontent.com/64371072/107161148-964e9f80-694f-11eb-94af-639d0cde07ed.png)
+
 ![image](https://user-images.githubusercontent.com/64371072/107161154-a2d2f800-694f-11eb-9fe7-12fe682823e5.png)
 
 
