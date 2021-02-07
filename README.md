@@ -1,4 +1,5 @@
 # Dynamic-Icons-Example
+Intro:
 How to change your app icons programmatically
  
  
@@ -31,9 +32,7 @@ class IconManager {
     }
 }
 ```
-Next, go to the project navigator, right click on the Info.plist file, and choose open as Source Code. Yes, it does look kind of intimidating, but I promise it’s much less complex than it seems. 
-
-Scroll to the bottom until you see
+Next, go to the project navigator, right click on the Info.plist file, and choose open as Source Code. Scroll to the bottom until you see
 ```
 </dict>
 </plist>
@@ -76,9 +75,9 @@ Directly before </dict>, please add this long and intimidating code. Just kiddin
 ```
 The key CFBundlePrimaryIcon refers to your default icon, the key CFBundleIconFiles refers to the file that contains your primary icon, and in between the two <string> tags should be the name of your primary icon. You can find this by going to your assets folder - AppIcons - find the 2x iPhone app icon  - right click -  select show in finder. Everything before .png should be the name of your image, excluding the 1x / 2x/ 3x naming convention. For example, my files are named 58-1@2x.png, so i would put 58-1 between the <string> tags. 
 
-Moving on to CFBundleAlternateIcons.  In the example XML, I used the references charmanderIcon and pikachuIcon as keys because these are also the same as my cases in the IconManager.swift file. If you look inside of my changeAppIcon() function, I am setting the alternative icon names as the raw value of each case. As such, we have to use the same reference name inside our Info.plist file, so Xcode knows what to look for. Your file name inside AlternativeIcons group will go in between the <string> tags for the corresponding icon. 
+Moving on to CFBundleAlternateIcons.  In the example XML, I used the references "charmanderIcon" and "pikachuIcon" as keys because these are also the same as my cases in the IconManager.swift file. If you look inside of my changeAppIcon() function, I am setting the alternative icon names as the raw value of each case. As such, we have to use the same reference name inside our Info.plist file, so Xcode knows what to look for. Your file name inside AlternativeIcons group will go in between the <string> tags for the corresponding icon. 
 
-The last thing we need to do is to add an action to the call-to-action buttons,  and this is only one line of code. Go to the ViewController where your buttons are located. 
+The last thing we need to do is to add an action to the call-to-action buttons. Go to the ViewController where your buttons are located. 
 
 First, make an instance of IconManager(): 
 ```
