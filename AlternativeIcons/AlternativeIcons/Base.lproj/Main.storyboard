@@ -16,31 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="0c3-Xq-M1C">
-                                <rect key="frame" x="147" y="243" width="120" height="410"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="0c3-Xq-M1C">
+                                <rect key="frame" x="147" y="223" width="120" height="450"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzr-is-ye3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKg-4d-kE8" userLabel="Default">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="RpL-IW-qJW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="mainIcon"/>
+                                        <connections>
+                                            <action selector="defaultIconTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PaG-li-fC4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzr-is-ye3" userLabel="ButtonChar">
+                                        <rect key="frame" x="0.0" y="165" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="6y0-xm-x1G"/>
                                             <constraint firstAttribute="width" constant="120" id="fNr-pm-imt"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="charmander.png"/>
+                                        <connections>
+                                            <action selector="charmanderTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EP0-MS-oAe"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peq-s1-dwm">
-                                        <rect key="frame" x="0.0" y="145" width="120" height="120"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peq-s1-dwm" userLabel="ButtonPika">
+                                        <rect key="frame" x="0.0" y="330" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="Dmo-s4-TcL"/>
                                             <constraint firstAttribute="width" constant="120" id="gHG-KC-ywt"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-mv-TT0">
-                                        <rect key="frame" x="0.0" y="290" width="120" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="r2W-LL-I6c"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="pikachu.png"/>
+                                        <connections>
+                                            <action selector="pikachuTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z9Q-Eu-NOU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -52,6 +61,11 @@
                             <constraint firstItem="0c3-Xq-M1C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="j4L-8e-uwb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="charmanderIcon" destination="Wzr-is-ye3" id="ODp-kn-AB2"/>
+                        <outlet property="defaultIcon" destination="OKg-4d-kE8" id="kS0-pX-tUA"/>
+                        <outlet property="pikachuIcon" destination="peq-s1-dwm" id="pqj-7V-oer"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +73,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="charmander.png" width="60" height="60"/>
+        <image name="mainIcon" width="120" height="120"/>
+        <image name="pikachu.png" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
