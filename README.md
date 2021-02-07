@@ -1,21 +1,21 @@
 # Dynamic-Icons-Example
-How to change your app icons programmatically
+# How to change your app icons programmatically
  
-Pre requisites: 
+ 
+# Pre requisites: 
 Xcode build that supports iOS 10.3 or later
 Icons
 
 Figma is my go to design tool, there is an extension called “App Icon Toolkit” which exports your icon with the correct sizes as well as naming convention: <https://www.figma.com/community/file/824894885635013369>
 
-Body: 
+
+# Body: 
 Create a new group called “AlternativeIcons” in Xcode to organize the alt icons. Each image should be available in both 2x (120 x120) and 3x (180 x 180) sizes, 1x size is optional. Please ensure to use the @2x and @3x naming convention that will allow iOS to automatically select the correct icon with the best resolution for the user’s device. 
 
+# Note: Please ensure that these icons do not go inside the Asset catalogue. 
 <img one>
 
-*** Note: Please ensure that these icons do not go inside the Asset catalogue. 
-
 Next, create another Swift file called IconManager. In this file, we will create a class called IconManager that will contain three things - a constant, an enum, and a function. 
-
 ``` 
 class IconManager {
     let application = UIApplication.shared
@@ -31,7 +31,6 @@ class IconManager {
     }
 }
 ```
-
 Next, go to the project navigator, right click on the Info.plist file, and choose open as Source Code. Yes, it does look kind of intimidating, but I promise it’s much less complex than it seems. 
 
 Scroll to the bottom until you see
@@ -39,9 +38,7 @@ Scroll to the bottom until you see
 </dict>
 </plist>
 ```
-
 Directly before </dict>, please add this long and intimidating code. Just kidding! I will explain in a little bit:
-
 ```
  <key>CFBundleIcons</key>
     <dict>
@@ -77,8 +74,7 @@ Directly before </dict>, please add this long and intimidating code. Just kiddin
         </dict>
     </dict>
 ```
-
-The highlighted lines need to be updated in your own code, so let’s start from the top. The key CFBundlePrimaryIcon refers to your default icon, the key CFBundleIconFiles  refers to the file that contains your primary icon, and in between the two <string> tags should be the name of your primary icon. You can find this by going to your assets folder - AppIcons - find the 2x iPhone app icon  - right click -  select show in finder. Everything before .png should be the name of your image, excluding the 1x / 2x/ 3x naming convention. For example, my files are named 58-1@2x.png, so i would put 58-1 between the <string> tags. 
+The key CFBundlePrimaryIcon refers to your default icon, the key CFBundleIconFiles refers to the file that contains your primary icon, and in between the two <string> tags should be the name of your primary icon. You can find this by going to your assets folder - AppIcons - find the 2x iPhone app icon  - right click -  select show in finder. Everything before .png should be the name of your image, excluding the 1x / 2x/ 3x naming convention. For example, my files are named 58-1@2x.png, so i would put 58-1 between the <string> tags. 
 
 Moving on to CFBundleAlternateIcons.  In the example XML, I used the references charmanderIcon and pikachuIcon as keys because these are also the same as my cases in the IconManager.swift file. If you look inside of my changeAppIcon() function, I am setting the alternative icon names as the raw value of each case. As such, we have to use the same reference name inside our Info.plist file, so Xcode knows what to look for. Your file name inside AlternativeIcons group will go in between the <string> tags for the corresponding icon. 
 
@@ -88,7 +84,6 @@ First, make an instance of IconManager():
 ```
 var appIconManager = IconManager()
 ```
-
 And then, inside the @IBAction functions, we just have to call changeAppIcon() for the corresponding case. On the other hand, you could set the alternativeIconName to nil if you would like to reset it back to default.
 ```
   @IBAction func defaultIconTapped(_ sender: Any) {
@@ -105,7 +100,6 @@ And then, inside the @IBAction functions, we just have to call changeAppIcon() f
     }
     
  ```
- 
 When you run your project and tap on each alt icon button, you should see a pop up alert notifying you that icons have been changed successfully. 
  
 <img2>
