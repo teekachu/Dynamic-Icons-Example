@@ -14,7 +14,8 @@ Body:
 Create a new group called “AlternativeIcons” in Xcode to organize the alt icons. Each image should be available in both 2x (120 x120) and 3x (180 x 180) sizes, 1x size is optional. Please ensure to use the @2x and @3x naming convention that will allow iOS to automatically select the correct icon with the best resolution for the user’s device. 
 
 ***Note: Please ensure that these icons do not go inside the Asset catalogue. 
-![image](https://user-images.githubusercontent.com/64371072/107161142-846cfc80-694f-11eb-8b75-ab2bf22dd208.png)
+
+<img src="https://user-images.githubusercontent.com/64371072/107161142-846cfc80-694f-11eb-8b75-ab2bf22dd208.png" width="300">
 
 Next, create another Swift file called IconManager. In this file, we will create a class called IconManager that will contain three things - a constant, an enum, and a function. 
 ``` 
@@ -101,8 +102,9 @@ And then, inside the @IBAction functions, we just have to call changeAppIcon() f
  ```
 When you run your project and tap on each alt icon button, you should see a pop up alert notifying you that icons have been changed successfully. 
 
-![image](https://user-images.githubusercontent.com/64371072/107161148-964e9f80-694f-11eb-94af-639d0cde07ed.png)
+<img src="https://user-images.githubusercontent.com/64371072/107161148-964e9f80-694f-11eb-94af-639d0cde07ed.png" width="300">
 
-![image](https://user-images.githubusercontent.com/64371072/107161154-a2d2f800-694f-11eb-9fe7-12fe682823e5.png)
+<img src="https://user-images.githubusercontent.com/64371072/107161154-a2d2f800-694f-11eb-9fe7-12fe682823e5.png" width="300">
+
 
 
